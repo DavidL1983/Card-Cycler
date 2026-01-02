@@ -1,0 +1,91 @@
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.master-container {
+    display: flex;
+    flex-direction: row;
+    max-width: fit-content;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px;
+    height: 300px;
+    width: 200px;
+}
+
+.selector-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    gap: 5px;
+    /* margin: 2px; */
+}
+
+.small-card {
+    display: flex;
+    height: 100%;
+    width: 25%;
+    border: solid black 2px;
+    border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.small-card img{
+        margin: 15px;
+        max-width: 100%;
+        object-fit: contain;
+}
+
+.small-card:focus {
+    background-color: lightgray;
+}
+
+.small-card.active {
+    background-color: aquamarine;
+    box-shadow: 0 0 0 3px rgba(42,111,179,0.08);
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color:aquamarine;
+    height: 100%;
+    width: 100%;
+    border: solid black 2px;
+    border-radius: 5px;
+    /* object-fit: contain; */
+}
+
+.card-title {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    margin-top: 5px;
+}
+
+.card img {
+    display: block;
+    max-width: 90%;
+    max-height: 35%;
+    object-fit: contain;
+    margin: auto;
+}
