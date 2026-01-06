@@ -1,0 +1,1 @@
+In this project version (test_5), I have achieved the ideal layout with the functionality of color-selection and clearing. Next, I want to be able to add and remove rows (measures), as well as a metronome (with transport) that highlights beats sequentially, working with or without multiple rows (measures).

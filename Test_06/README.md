@@ -1,0 +1,1 @@
+In this project version (Test_06), I want to build on the previous iteration (having added functionality of color-selection and clearing). I want to be able to add and remove rows (measures). In the next iteration, I want to add a metronome (with transport) that highlights beats sequentially, working with or without multiple rows (measures).

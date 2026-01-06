@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <h1>Card Cycler</h1>
+    <section class="controls">
+        <button class="controls" id="play" >
+            <img src="/app/media/01_play.png" alt="">
+        </button>
+        <button class="controls" id="stop" >
+            <img src="/app/media/02_stop.png" alt="">
+        </button>
+        <button class="controls" id="remove" >
+            <img src="/app/media/03_remove.png" alt="">
+        </button>
+        <button class="controls" id="add" >
+            <img src="/app/media/04_add.png" alt="">
+        </button>
+    </section>
+    
+    <section class="panel-container" id="panelOne">
+        <p class="measure-label">Measure 1</p>
+        <div class="card-container">
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        </div>
+    </section>
+
+    <section class="panel" id="panelTwo">
+        <p class="measure-label">Measure 2</p>
+        <div class="card-container">
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        </div>
+    </section>
+
+    <section class="panel" id="panelThree">
+        <p class="measure-label">Measure 3</p>
+        <div class="card-container">
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        </div>
+    </section>
+
+    <section class="panel" id="panelFour">
+        <p class="measure-label">Measure 4</p>
+        <div class="card-container">
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        <div class="card">
+            <section class="color-selector">
+                <button class="color-button" data-color="red"></button>
+                <button class="color-button" data-color="yellow"></button>
+                <button class="color-button" data-color="green"></button>
+                <button class="color-button" data-color="blue"></button>    
+                <button class="clear-button">X</button>    
+            </section>
+            <section class="selector">
+                <button class="small-card" data-key="one"></button>
+                <button class="small-card" data-key="two"></button>
+                <button class="small-card" data-key="three"></button>
+                <button class="small-card" data-key="four"></button>
+            </section>
+            <section class="display">
+                <div class="large-card">
+                    <p>Beat 1</p>
+                    <img src="" alt="">
+                </div>
+            </section>
+        </div>
+        </div>
+    </section>
+
+</body>
+</html>

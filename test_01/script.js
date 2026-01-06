@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!img) return;
         // update only this container's main image/title
         mainImg.src = img.src;
-        if (mainTitle) mainTitle.textContent = img.alt || thumb.dataset.title || `Beat ${idx+1}`;
+        // if (mainTitle) mainTitle.textContent = img.alt || thumb.dataset.title || `Beat ${idx+1}`;
         // active styling limited to this container
         thumbs.forEach(t => t.classList.remove('active'));
         thumb.classList.add('active');

@@ -1,0 +1,156 @@
+// Source - https://stackoverflow.com/a
+// Posted by Dennis G, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-01-05, License - CC BY-SA 2.5
+
+/* Universal box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Portrait */
+@media screen and (orientation:portrait) {
+   /* Portrait styles here */
+}
+/* Landscape */
+@media screen and (orientation:landscape) {
+   /* Landscape styles here */
+}
+
+
+html, body {
+    margin: 0;
+    padding: 10px;
+    /* display: flex; */
+    /* flex-direction: row; */
+    gap: 3svh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.panel {
+    display: flex;
+    flex-direction: row;
+    gap: 2svw;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 250px;
+    min-width: 200px;
+    max-width: 400px;
+    padding: 1svh;
+    border: solid 3px grey;
+    border-radius: 2svh;
+    box-shadow: 10px 10px 15px grey;
+}
+
+.selector {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1svw;
+    padding: 1svw;
+    box-sizing: border-box;
+    /* border: solid 1px black; */
+}
+
+.small-card {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    /* border: solid 2px black; */
+    border-radius: 1svh;
+    padding: 6% 0 6% 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.small-card.active {
+    border: solid 3px #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    padding: 1svw;
+    /* border: rgb(240, 14, 14) 1px solid; */
+    box-sizing: border-box;
+}
+.large-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    /* height: 30%; */
+    /* border: black 1px solid; */
+    box-sizing: border-box;
+    aspect-ratio: 1 / 1;
+    
+}
+
+p {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    font-size: clamp(1rem, 3vw, 2rem);
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border: solid 2px black;
+    border-radius: 1svh;
+    padding: 2svh;
+    box-sizing: border-box;
+}
+
+/* map keys → variables */  
+.small-card[data-key="one"]   { background-image: url("/app/media/musical\ notation_rest.png"); }
+.small-card[data-key="two"]   { background-image: url("/app/media/musical\ notation_ta.png"); }
+.small-card[data-key="three"] { background-image: url("/app/media/musical\ notation_titi.png"); }
+.small-card[data-key="four"]  { background-image: url("/app/media/musical\ notation_tikatika.png"); }
+
+.color-selector {
+    display: flex;
+    position: relative;
+    height: auto;
+    padding: 0.5svh;
+    gap: 0.5svh;
+    /* border: solid 1px black; */
+}
+
+.color-button {
+    height: 3svh;
+    aspect-ratio: 1 / 1;
+    border: solid 2px black;
+    border-radius: 1.5svh;
+}
+
+/* my color scheme */
+[data-color="red"]    { background-color: #E74C3C; }
+[data-color="yellow"] { background-color: #F1C40F; }
+[data-color="green"]  { background-color: #2ECC71; }
+[data-color="blue"]   { background-color: #3498DB; }
+
+.clear-button {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2svh;
+    height: 3svh;
+    aspect-ratio: 1 / 1;
+    border: solid 2px black;
+    border-radius: 0.5svh;
+    position: absolute;
+    right: 1svh;
+}
