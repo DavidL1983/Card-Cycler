@@ -201,7 +201,7 @@ img {
 }
 
 /* map keys → variables */  
-.small-card[data-key="one"]   { background-image: url("/app/media/musical\ notation_rest.png"); }
-.small-card[data-key="two"]   { background-image: url("/app/media/musical\ notation_ta.png"); }
-.small-card[data-key="three"] { background-image: url("/app/media/musical\ notation_titi.png"); }
-.small-card[data-key="four"]  { background-image: url("/app/media/musical\ notation_tikatika.png"); }
+.small-card[data-key="one"]   { background-image: url("media/musical notation_rest.png"); }
+.small-card[data-key="two"]   { background-image: url("media/musical notation_ta.png"); }
+.small-card[data-key="three"] { background-image: url("media/musical notation_titi.png"); }
+.small-card[data-key="four"]  { background-image: url("media/musical notation_tikatika.png"); } 
