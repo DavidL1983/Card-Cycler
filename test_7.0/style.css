@@ -1,0 +1,429 @@
+/* =========================
+   Card Cycler — Responsive CSS
+   - Uses % / svh / clamp()
+   - Border thickness swaps for phone/tablet/desktop
+   ========================= */
+
+/* ---------- 0) Reset + base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.2;
+  background: #fff;
+  color: #111;
+}
+
+/* Remove default fieldset styling */
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+/* Buttons default reset */
+button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Images behave predictably */
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---------- 1) Accessibility helper ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- 2) Responsive tokens ---------- */
+/* Default = phone.
+   We’ll override border thickness + a couple spacings at tablet/desktop. */
+:root {
+  /* Layout */
+  --page-pad: clamp(8px, 1.5vw, 20px);
+  --gap: clamp(6px, 1vw, 14px);
+
+  /* Border thickness: swapped via media queries */
+  --line: 2px; /* phone default */
+  --radius: clamp(6px, 1.5svh, 12px);
+
+  /* Component sizing */
+  --toolbar-height: clamp(48px, 8svh, 76px);
+  --toolbar-max: min(90vw, 560px);
+
+  /* Clamp controls the size of each color swatch button (the circles). Breakdown of clamp(min size, preferred fluid size, max size). So this line literally means: “The swatch should try to be 6.5% of the small viewport height, but never smaller than 34px, and never larger than 56px.” 
+  
+  What each value means: 
+  
+  🔹 34px (minimum). Prevents swatches from becoming too small to tap (Important for phones and accessibility). ~34–44px is a common minimum touch target range. If the viewport is tiny, the swatch stops shrinking here.
+
+  🔹 6.5svh (preferred / fluid)
+
+svh = small viewport height
+
+It adapts to:
+
+portrait vs landscape
+
+mobile browser UI appearing/disappearing
+
+Swatches scale relative to vertical space, which makes sense for stacked UIs
+
+So as the device height changes:
+
+Tall phone → swatches grow
+
+Short landscape phone → swatches shrink
+
+Tablet → moderate growth
+
+This is the “responsive” part.
+
+  🔹 56px (maximum)
+
+Prevents swatches from becoming cartoonishly large on tablets/desktops
+
+Keeps the UI looking tight and intentional
+
+Past this size, bigger swatches don’t add usability
+
+Visual intuition
+
+Think of it like a spring:
+
+34px ────[ flexible 6.5svh ]──── 56px
+
+
+The swatch stretches and compresses only within a safe range.
+  */
+  --swatch: clamp(20px, 3.5svh, 40px);
+  --swatch-gap: clamp(4px, 0.8vw, 10px);
+
+  --picker-item: clamp(28px, 5svh, 50px);
+  --picker-gap: clamp(4px, 0.8vw, 10px);
+
+  /* Card proportions (preview) */
+  --preview-aspect: 3 / 4; /* width/height */
+  --card-pad: clamp(6px, 1.2svh, 12px);
+  --card-outline: #111;
+  --card-accent: #d48bb6; /* pink-ish frame like your mockup */
+
+  /* Title sizes */
+  --h1: clamp(28px, 4vw, 46px);
+  --h2: clamp(16px, 2vw, 28px);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  :root {
+    --line: 3px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  :root {
+    --line: 4px;
+  }
+}
+
+/* ---------- 3) Header ---------- */
+.app-header {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: clamp(10px, 2svh, 18px);
+  padding: var(--page-pad);
+  padding-bottom: clamp(12px, 3svh, 28px);
+}
+
+.app-title {
+  margin: 0;
+  font-size: var(--h1);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Toolbar: a rounded container holding buttons and metronome */
+.toolbar {
+  width: var(--toolbar-max);
+  height: var(--toolbar-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 1vw, 18px);
+  padding: 0;
+  /* border: var(--line) solid var(--card-outline); */
+  /* border-radius: calc(var(--radius) * 1.2); */
+}
+
+/* Metronome controls container */
+.toolbar__metronome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(4px, 0.5svh, 8px);
+  padding: 0 clamp(8px, 1vw, 16px);
+}
+
+/* BPM Slider */
+.bpm-slider {
+  width: clamp(80px, 15vw, 150px);
+  height: clamp(4px, 0.8svh, 8px);
+  cursor: pointer;
+  accent-color: var(--card-accent);
+}
+
+/* BPM Display */
+.bpm-display {
+  font-size: clamp(11px, 1.8vw, 14px);
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+}
+
+/* Toolbar button */
+.toolbar__btn {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  /* border: var(--line) solid var(--card-outline); */
+  /* border-radius: calc(var(--radius) * 2); */
+  background: #fff;
+}
+
+/* Optional: give them quick visual meaning (remove if you’ll use icons) */
+.toolbar__btn--play {
+  background-image: url('media/01_play.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.toolbar__btn--stop {
+  background-image: url('media/02_stop.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.toolbar__btn--remove {
+  background-image: url('media/03_remove_04.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.toolbar__btn--add {
+  background-image: url('media/04_add_04.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.toolbar__btn--colors {
+  font-size: clamp(20px, 4svh, 32px);
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ---------- 4) Main layout ---------- */
+.app {
+  padding: var(--page-pad);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3svh, 28px);
+}
+
+/* ---------- 5) Measure section ---------- */
+.measure-one,
+.measure-two,
+.measure-three,
+.measure-four {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2svh, 18px);
+}
+
+.measure__title {
+  margin: 0;
+  font-size: var(--h2);
+  font-weight: 700;
+}
+
+.measure__number {
+  font-weight: 800;
+}
+
+/* Container for cards in a row */
+.measure__card-container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap);
+}
+
+/* ---------- 6) Individual card (pink border like mockup) ---------- */
+.measure__card {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: var(--gap);
+
+  /* The card itself: pink frame with inner padding */
+  padding: var(--card-pad);
+  border: var(--line) solid var(--card-accent);
+  border-radius: var(--radius);
+  transition: border-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Active beat highlighting */
+.measure__card.active-beat {
+  border-color: #111;
+  box-shadow: 0 0 0 clamp(2px, 0.5svh, 4px) #111;
+}
+
+/* ---------- 7) Palette row ---------- */
+.palette {
+  display: flex;
+  align-items: center;
+  gap: var(--swatch-gap);
+
+  /* Give it a black outline like the mockup row */
+  padding: clamp(10px, 2svh, 14px);
+  border: var(--line) solid var(--card-outline);
+  border-radius: var(--radius);
+}
+
+.palette__swatch {
+  width: var(--swatch);
+  aspect-ratio: 1 / 1;
+  border: var(--line) solid var(--card-outline);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.palette__swatch[data-color="red"] { background: #d8422a; }
+.palette__swatch[data-color="blue"] { background: #4d98ff; }
+.palette__swatch[data-color="yellow"] { background: #f2d34a; }
+.palette__swatch[data-color="green"] { background: #7ad14b; }
+
+/* Clear = white square (like your mockup) */
+.palette__swatch--clear {
+  margin-left: auto;
+  padding: clamp(1px, 2svh, 12px);
+  border-radius: calc(var(--radius) * 0.6);
+  background: #fff;
+}
+
+/* ---------- 8) Rhythm picker row ---------- */
+.rhythm-picker {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: repeat(4, 1fr);
+  gap: var(--picker-gap);
+
+  padding: clamp(0.5px, 1svh, 4px);
+  border: var(--line) solid var(--card-outline);
+  border-radius: var(--radius);
+}
+
+.rhythm-picker__item {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border: var(--line) solid var(--card-outline);
+  border-radius: calc(var(--radius) * 0.6);
+  background: #fff;
+
+  display: grid;
+  place-items: center;
+  padding: clamp(6px, 1.5svh, 12px);
+}
+
+.rhythm-picker__item img {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+/* ---------- 9) Beat info (optional row) ---------- */
+.measure__beat {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  min-height: .2em; /* keeps layout stable even when empty */
+  font-size: clamp(12px, 2vw, 18px);
+  font-weight: 600;
+}
+
+/* ---------- 10) Preview (big card area) ---------- */
+.preview {
+  margin: 0;
+
+  width: 100%;
+
+  /* Aspect ratio makes it "card-like" */
+  aspect-ratio: var(--preview-aspect);
+  aspect-ratio: 1 / 1;
+
+  border: var(--line) solid var(--card-outline);
+  border-radius: var(--radius);
+
+  background: #fff;
+  overflow: hidden;
+}
+
+.preview__img {
+  height: 100%;
+  /* width: 100%; */
+  aspect-ratio: 1 / 1;
+  padding: clamp(14px, 2svh, 18px);
+  object-fit: contain;
+}
+
+/* ---------- 11) Orientation tweaks ---------- */
+/* If landscape on small devices: reduce vertical padding and keep things tight */
+@media (max-width: 767px) and (orientation: landscape) {
+  :root {
+    --toolbar-height: clamp(44px, 10svh, 60px);
+    --swatch: clamp(30px, 8svh, 46px);
+    --picker-item: clamp(40px, 10svh, 58px);
+  }
+  .app-header {
+    gap: clamp(8px, 2svh, 12px);
+    padding-bottom: clamp(8px, 2svh, 14px);
+  }
+  .preview {
+    max-width: min(92vw, 420px);
+  }
+}
+
+/* ---------- 12) Focus styles (important for keyboard use) ---------- */
+.toolbar__btn:focus-visible,
+.palette__swatch:focus-visible,
+.rhythm-picker__item:focus-visible {
+  outline: calc(var(--line) + 1px) solid #000;
+  outline-offset: 3px;
+}

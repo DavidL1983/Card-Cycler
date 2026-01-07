@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Cycler</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="app-header">
+    <h1 class="app-title">Music Mondays</h1>
+
+    <div class="toolbar" role="toolbar" aria-label="Transport and edit controls">
+      <button class="toolbar__btn toolbar__btn--play" type="button" aria-label="Play"></button>
+      <button class="toolbar__btn toolbar__btn--stop" type="button" aria-label="Stop"></button>
+      
+      <div class="toolbar__metronome">
+        <input type="range" class="bpm-slider" min="20" max="200" value="120" aria-label="Tempo in BPM">
+        <span class="bpm-display">120 BPM</span>
+      </div>
+      
+      <button class="toolbar__btn toolbar__btn--remove" type="button" aria-label="Remove measure"></button>
+      <button class="toolbar__btn toolbar__btn--add" type="button" aria-label="Add measure"></button>
+      <button class="toolbar__btn toolbar__btn--colors" type="button" aria-label="Generate color scheme" title="Click to load new colors">🎨</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="measure-one" aria-label="Measure One">
+      <p class="measure__title">Measure <span class="measure__number">1</span></p>
+      
+      <div class="measure__card-container">
+        <!-- Card 1 -->
+        <article class="measure__card" data-beat="1">
+          <!-- Color palette -->
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <!-- Card picker -->
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <!-- Optional info row -->
+          <p class="measure__beat" aria-live="polite">Beat 1</p>
+
+          <!-- Big preview -->
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="measure__card" data-beat="2">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 2</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="measure__card" data-beat="3">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 3</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="measure__card" data-beat="4">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 4</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- Measure Two -->
+    <section class="measure-two" aria-label="Measure Two" style="display: none;">
+      <p class="measure__title">Measure <span class="measure__number">2</span></p>
+      
+      <div class="measure__card-container">
+        <!-- Card 1 -->
+        <article class="measure__card" data-beat="1">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 1</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="measure__card" data-beat="2">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 2</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="measure__card" data-beat="3">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 3</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="measure__card" data-beat="4">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 4</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- Measure Three -->
+    <section class="measure-three" aria-label="Measure Three" style="display: none;">
+      <p class="measure__title">Measure <span class="measure__number">3</span></p>
+      
+      <div class="measure__card-container">
+        <!-- Card 1 -->
+        <article class="measure__card" data-beat="1">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 1</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="measure__card" data-beat="2">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 2</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="measure__card" data-beat="3">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 3</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="measure__card" data-beat="4">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 4</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- Measure Four -->
+    <section class="measure-four" aria-label="Measure Four" style="display: none;">
+      <p class="measure__title">Measure <span class="measure__number">4</span></p>
+      
+      <div class="measure__card-container">
+        <!-- Card 1 -->
+        <article class="measure__card" data-beat="1">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 1</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="measure__card" data-beat="2">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 2</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="measure__card" data-beat="3">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 3</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="measure__card" data-beat="4">
+          <fieldset class="palette">
+            <legend class="sr-only">Color</legend>
+            <button class="palette__swatch" type="button" data-color="red" aria-label="Red"></button>
+            <button class="palette__swatch" type="button" data-color="blue" aria-label="Blue"></button>
+            <button class="palette__swatch" type="button" data-color="yellow" aria-label="Yellow"></button>
+            <button class="palette__swatch" type="button" data-color="green" aria-label="Green"></button>
+            <button class="palette__swatch palette__swatch--clear" type="button" data-color="clear" aria-label="Clear">
+              <img src="media/03_remove_03.png" alt="">
+            </button>
+          </fieldset>
+
+          <nav class="rhythm-picker" aria-label="Rhythm cards">
+            <button class="rhythm-picker__item" type="button" data-card="rest" aria-label="Rest">
+              <img src="media/musical notation_rest.png" alt="Rest rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="ta" aria-label="Ta">
+              <img src="media/musical notation_ta.png" alt="Ta rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="titi" aria-label="Ti-ti">
+              <img src="media/musical notation_titi.png" alt="Ti-ti rhythm card" />
+            </button>
+            <button class="rhythm-picker__item" type="button" data-card="tikatika" aria-label="Tika-tika">
+              <img src="media/musical notation_tikatika.png" alt="Tika-tika rhythm card" />
+            </button>
+          </nav>
+
+          <p class="measure__beat" aria-live="polite">Beat 4</p>
+
+          <figure class="preview">
+            <img class="preview__img" src="" alt="Selected card preview" />
+          </figure>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
