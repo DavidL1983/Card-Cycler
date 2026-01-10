@@ -255,7 +255,7 @@ The swatch stretches and compresses only within a safe range.
   padding: var(--page-pad);
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 3svh, 28px);
+  gap: clamp(8px, 1svh, 28px);
 }
 
 /* ---------- 5) Measure section ---------- */
@@ -265,7 +265,7 @@ The swatch stretches and compresses only within a safe range.
 .measure-four {
   display: flex;
   flex-direction: column;
-  gap: clamp(6px, 1.5svh, 18px);
+  /* gap: clamp(6px, 1.5svh, 18px); */
 }
 
 .measure__title {
