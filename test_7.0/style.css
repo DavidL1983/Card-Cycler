@@ -265,14 +265,18 @@ The swatch stretches and compresses only within a safe range.
 .measure-four {
   display: flex;
   flex-direction: column;
-  /* gap: clamp(1px, 1svh, 18px); */
+  gap: clamp(1px, 1svh, 18px);
   /* border: solid black 1px; */
 }
 
 .measure__title {
   margin: 0;
-  /* font-size: var(--h2); */
+  font-size: var(--h2);
   font-weight: 700;
+}
+
+.measure__number {
+  font-weight: 800;
 }
 
 /* Container for cards in a row */
