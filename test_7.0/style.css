@@ -454,6 +454,19 @@ The swatch stretches and compresses only within a safe range.
   }
 }
 
+/* Reduce image padding on small screens for maximum visibility */
+@media (max-width: 767px) {
+  .preview__img {
+    padding: 2px;
+  }
+  .rhythm-picker {
+    border-radius: calc(var(--radius) * 0.5);
+  }
+  .rhythm-picker__item {
+    border-radius: calc(var(--radius) * 0.4);
+  }
+}
+
 /* ---------- 12) Focus styles (important for keyboard use) ---------- */
 .toolbar__btn:focus-visible,
 .palette__swatch:focus-visible,
