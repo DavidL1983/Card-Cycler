@@ -454,15 +454,13 @@ The swatch stretches and compresses only within a safe range.
   }
 }
 
-/* Reduce image padding on small screens and tablets in portrait for maximum visibility */
+/* Optimize rhythm picker for small screens and tablets in portrait */
 @media (max-width: 1023px) {
-  .preview__img {
-    padding: 2px;
-  }
   .rhythm-picker {
     border-radius: calc(var(--radius) * 0.5);
   }
   .rhythm-picker__item {
+    padding: 2px;
     border-radius: calc(var(--radius) * 0.4);
   }
 }
